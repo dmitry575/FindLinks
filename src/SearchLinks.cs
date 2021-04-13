@@ -22,7 +22,7 @@ namespace FindLinks
         /// <summary>
         /// Max threads for parsing pages
         /// </summary>
-        private const int MaxThreads = 2;
+        private const int MaxThreads = 5;
 
         /// <summary>
         /// Options from user
@@ -138,15 +138,23 @@ namespace FindLinks
             foreach (var res in _results)
             {
                 sb.Append(res.Key);
+                sb.AppendFormat(" - {0}", res.Value.Count);
                 sb.Append("\r\n");
-                foreach (var url in _results.Values)
-                {
-                    sb.Append("\t");
-                    sb.Append(url);
-                    sb.Append("\r\n");
-                }
+                AddToSb(res.Value, sb);
             }
             File.WriteAllText(_options.OutName, sb.ToString());
+            Write("");
+            Write(sb.ToString());
+        }
+
+        private void AddToSb(List<string > urls, StringBuilder sb)
+        {
+            foreach (string url in urls)
+            {
+                sb.Append("\t");
+                sb.Append(url);
+                sb.Append("\r\n");
+            }
         }
     }
 }
