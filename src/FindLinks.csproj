@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <Authors>Dmitry Tarakanov</Authors>
+    <Company>Dmitry Tarakanov</Company>
+    <Product>Find url on pages</Product>
+    <Description>Program for quick and easy searching url on different pages.</Description>
+    <RepositoryUrl>https://github.com/dmitry575</RepositoryUrl>
+    <PackageTags>SearchUrl</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.8.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.32" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="urls.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

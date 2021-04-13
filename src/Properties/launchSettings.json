@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "FindLinks": {
+      "commandName": "Project",
+      "commandLineArgs": "-v --file urls.txt --out out.txt http://example.ru",
+      "nativeDebugging": true
+    }
+  }
+}
